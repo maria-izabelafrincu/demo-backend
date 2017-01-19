@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cassandra>
+    <use>
+        use to_do
+    </use>
+    <tables>
+        <table>
+            create table if not exists to_do (title text, description text, created_on timestamp, updated_on timestamp, is_done boolean,
+            primary key (title))
+        </table>
+    </tables>
+
+    <indexes>
+    </indexes>
+
+</cassandra>
