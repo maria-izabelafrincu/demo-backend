@@ -32,17 +32,18 @@ public class ToDoController {
   }
 
   @PostMapping(value = "to_do", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
-  public void createOrUpdateToDo(@RequestBody ToDo toDo) {
-
-    if(toDoRepository.getToDoByTitle(toDo.getTitle())==null) {
+  public void createToDo(@RequestBody ToDo toDo) {
       toDo.setCreatedOn(new Date());
       toDo.setIsDone(false);
       toDoRepository.saveToDo(toDo);
-    }
-    else{
-      toDo.setCreatedOn(toDoRepository.getToDoByTitle(toDo.getTitle()).getCreatedOn());
+  }
+
+  @PutMapping(value = "to_do/{title}", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+  public void updateToDo(@RequestBody ToDo toDo) {
+
+    if(toDoRepository.getToDoByTitle(toDo.getTitle())!=null) {
       toDo.setUpdatedOn(new Date());
-      toDoRepository.saveToDo(toDo);
+      toDoRepository.updateToDo(toDo.getTitle(), toDo.getDescription(), toDo.getIsDone(), toDo.getUpdatedOn());
     }
   }
 

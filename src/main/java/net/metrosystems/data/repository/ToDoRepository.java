@@ -1,12 +1,11 @@
 package net.metrosystems.data.repository;
 
 import java.util.List;
-
+import java.util.Date;
 import net.metrosystems.data.CassandraPersistenceService;
 import net.metrosystems.data.accessors.ToDoAccessor;
 import net.metrosystems.data.domain.ToDo;
 import org.springframework.stereotype.Repository;
-
 import com.datastax.driver.mapping.Mapper;
 
 @Repository
@@ -36,13 +35,7 @@ public class ToDoRepository {
         return accessor.getAllToDos().all();
     }
 
-//    public void updateDescription(String title, String description) {
-//        accessor.updateDescription(title, description);
-//    }
-//
-//     public void updateIsDone(String title, Boolean isDone) {
-//         accessor.updateIsDone(title, isDone);
-//     }
-
-
+    public void updateToDo(String title, String description, Boolean isDone, Date updatedOn) {
+        accessor.updateToDo(title, description, isDone, updatedOn);
+    }
 }
