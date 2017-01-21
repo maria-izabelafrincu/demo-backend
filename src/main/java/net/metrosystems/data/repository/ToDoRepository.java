@@ -36,13 +36,13 @@ public class ToDoRepository {
         return accessor.getAllToDos().all();
     }
 
-    public void updateDescription(String title, String description) {
-        accessor.updateDescription(title, description);
-    }
-
-     public void updateIsDone(String title, Boolean isDone) {
-         accessor.updateIsDone(title, isDone);
-     }
+//    public void updateDescription(String title, String description) {
+//        accessor.updateDescription(title, description);
+//    }
+//
+//     public void updateIsDone(String title, Boolean isDone) {
+//         accessor.updateIsDone(title, isDone);
+//     }
 
 
 }

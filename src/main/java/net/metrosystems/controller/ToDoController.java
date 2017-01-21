@@ -7,10 +7,12 @@ import org.springframework.web.bind.annotation.*;
 import io.swagger.annotations.ApiParam;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.HttpStatus;
-
+import java.util.Date;
+import java.text.SimpleDateFormat;
+import java.text.DateFormat;
 import java.util.List;
 
-@RestController("person")
+@RestController("to_do")
 public class ToDoController {
 
   private final ToDoRepository toDoRepository;
@@ -30,8 +32,18 @@ public class ToDoController {
   }
 
   @PostMapping(value = "to_do", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
-  public void postNewToDo(@RequestBody ToDo toDo) {
-    toDoRepository.saveToDo(toDo);
+  public void createOrUpdateToDo(@RequestBody ToDo toDo) {
+
+    if(toDoRepository.getToDoByTitle(toDo.getTitle())==null) {
+      toDo.setCreatedOn(new Date());
+      toDo.setIsDone(false);
+      toDoRepository.saveToDo(toDo);
+    }
+    else{
+      toDo.setCreatedOn(toDoRepository.getToDoByTitle(toDo.getTitle()).getCreatedOn());
+      toDo.setUpdatedOn(new Date());
+      toDoRepository.saveToDo(toDo);
+    }
   }
 
   @DeleteMapping(value = "to_do/{title}")

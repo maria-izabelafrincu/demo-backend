@@ -29,4 +29,44 @@ public class ToDo {
 
   @Column(name = "is_done")
   Boolean isDone;
+
+public Date getCreatedOn() {
+    return createdOn;
+}
+
+    public void setCreatedOn(Date createdOn) {
+        this.createdOn = createdOn;
+    }
+
+    public Date getUpdatedOn() {
+        return updatedOn;
+    }
+
+    public void setUpdatedOn(Date updatedOn) {
+        this.updatedOn = updatedOn;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Boolean getIsDone() {
+        return isDone;
+    }
+
+    public void setIsDone(Boolean isDone) {
+        isDone = isDone;
+    }
 }
