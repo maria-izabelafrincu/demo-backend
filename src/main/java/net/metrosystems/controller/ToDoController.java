@@ -38,15 +38,4 @@ public class ToDoController {
   public void deleteToDo(@PathVariable("title") String title) {
     toDoRepository.deleteToDoByTitle(title);
   }
-
-//  @PutMapping(value = "to_do/{title}")
-//  public void updateDescription(@PathVariable("title") String title, @PathVariable("description") String description) {
-//    toDoRepository.updateDescription(title, description);
-//  }
-//
-//  @PutMapping(value = "to_do/{title}")
-//  public void updateIsDone(@PathVariable("title") String title, @PathVariable("is-done") Boolean isDone) {
-//    toDoRepository.updateIsDone(title, isDone);
-//  }
-
 }

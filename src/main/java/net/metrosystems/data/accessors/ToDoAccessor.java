@@ -18,12 +18,4 @@ public interface ToDoAccessor {
 
   @Query("delete FROM to_do WHERE title=:title")
   void deleteToDoByTitle(@Param("title") String title);
-
-  @Query("update to_do Set description=:description WHERE title=:title")
-  void updateDescription(@Param("title") String title, @Param("description") String description);
-
-  @Query("update to_do Set is_done=:is_done WHERE title=:title")
-  void updateIsDone(@Param("title") String title, @Param("is_done") Boolean isDone);
-
-
 }

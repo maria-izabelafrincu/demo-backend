@@ -22,11 +22,11 @@ public class ToDo {
   String description;
 
   @Column(name = "created_on")
-  Date created_on;
+  Date createdOn;
 
   @Column(name = "updated_on")
-  Date updated_on;
+  Date updatedOn;
 
   @Column(name = "is_done")
-  Boolean is_done;
+  Boolean isDone;
 }
