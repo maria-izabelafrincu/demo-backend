@@ -1,5 +1,6 @@
 package net.metrosystems.data.domain;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.datastax.driver.mapping.annotations.Column;
 import com.datastax.driver.mapping.annotations.PartitionKey;
 import com.datastax.driver.mapping.annotations.Table;
@@ -14,34 +15,41 @@ import lombok.*;
 @Builder
 public class ToDo {
 
-  @Column(name = "title")
-  @PartitionKey // echivaleaza aproximativ cu primary key din sql
-  String title;
+    @Column(name = "title")
+    @PartitionKey // echivaleaza aproximativ cu primary key din sql
+    String title;
 
-  @Column(name = "description")
-  String description;
+    @Column(name = "description")
+    String description;
 
-  @Column(name = "created_on")
-  Date createdOn;
+    @Column(name = "created_on")
+    @JsonProperty("created_on")
+    Date createdOn;
 
-  @Column(name = "updated_on")
-  Date updatedOn;
+    @Column(name = "updated_on")
+    @JsonProperty("updated_on")
+    Date updatedOn;
 
-  @Column(name = "is_done")
-  Boolean isDone;
+    @Column(name = "is_done")
+    @JsonProperty("is_done")
+    boolean isDone;
 
-public Date getCreatedOn() {
+    @JsonProperty("created_on")
+    public Date getCreatedOn() {
     return createdOn;
-}
+    }
 
+    @JsonProperty("created_on")
     public void setCreatedOn(Date createdOn) {
         this.createdOn = createdOn;
     }
 
+    @JsonProperty("updated_on")
     public Date getUpdatedOn() {
         return updatedOn;
     }
 
+    @JsonProperty("updated_on")
     public void setUpdatedOn(Date updatedOn) {
         this.updatedOn = updatedOn;
     }
@@ -62,11 +70,13 @@ public Date getCreatedOn() {
         this.description = description;
     }
 
-    public Boolean getIsDone() {
+    @JsonProperty("is_done")
+    public boolean getIsDone() {
         return isDone;
     }
 
-    public void setIsDone(Boolean isDone) {
-        isDone = isDone;
-    }
+    @JsonProperty("is_done")
+    public void setIsDone(boolean isDone) {
+    this.isDone = isDone;
+}
 }

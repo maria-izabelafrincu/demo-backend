@@ -20,6 +20,6 @@ public interface ToDoAccessor {
   void deleteToDoByTitle(@Param("title") String title);
 
   @Query("UPDATE to_do set is_done=:isDone, description=:description, updated_on=: updatedOn WHERE title=:title")
-  void updateToDo(@Param("title") String title, @Param("description") String description, @Param("isDone") Boolean isDone, @Param("updatedOn") Date updatedOn);
+  void updateToDo(@Param("title") String title, @Param("description") String description, @Param("isDone") boolean isDone, @Param("updatedOn") Date updatedOn);
 
 }
