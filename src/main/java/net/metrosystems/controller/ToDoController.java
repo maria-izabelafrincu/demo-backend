@@ -11,7 +11,10 @@ import java.util.Date;
 import java.text.SimpleDateFormat;
 import java.text.DateFormat;
 import java.util.List;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
+@CrossOrigin(allowedHeaders = "*")
 @RestController("to_do")
 public class ToDoController {
 
@@ -32,10 +35,11 @@ public class ToDoController {
   }
 
   @PostMapping(value = "to_do", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
-  public void createToDo(@RequestBody ToDo toDo) {
-      toDo.setCreatedOn(new Date());
-      toDo.setIsDone(false);
-      toDoRepository.saveToDo(toDo);
+  public ToDo createToDo(@RequestBody ToDo toDo) {
+    toDo.setCreatedOn(new Date());
+    toDo.setIsDone(false);
+    toDoRepository.saveToDo(toDo);
+    return toDo;
   }
 
   @PutMapping(value = "to_do/{title}", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
