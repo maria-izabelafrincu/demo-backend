@@ -43,12 +43,13 @@ public class ToDoController {
   }
 
   @PutMapping(value = "to_do/{title}", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
-  public void updateToDo(@RequestBody ToDo toDo) {
+  public ToDo updateToDo(@RequestBody ToDo toDo) {
 
     if(toDoRepository.getToDoByTitle(toDo.getTitle())!=null) {
       toDo.setUpdatedOn(new Date());
       toDoRepository.updateToDo(toDo.getTitle(), toDo.getDescription(), toDo.getIsDone(), toDo.getUpdatedOn());
     }
+    return toDo;
   }
 
   @DeleteMapping(value = "to_do/{title}")
