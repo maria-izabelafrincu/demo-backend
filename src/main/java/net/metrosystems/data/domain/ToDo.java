@@ -1,5 +1,6 @@
 package net.metrosystems.data.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.datastax.driver.mapping.annotations.Column;
 import com.datastax.driver.mapping.annotations.PartitionKey;
@@ -23,10 +24,12 @@ public class ToDo {
     String description;
 
     @Column(name = "created_on")
+    @JsonFormat(pattern="yyyy-MM-dd hh:mm:ss")
     @JsonProperty("created_on")
     Date createdOn;
 
     @Column(name = "updated_on")
+    @JsonFormat(pattern="yyyy-MM-dd  hh:mm:ss")
     @JsonProperty("updated_on")
     Date updatedOn;
 
