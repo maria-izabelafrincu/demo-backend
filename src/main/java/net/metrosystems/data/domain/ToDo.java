@@ -29,7 +29,7 @@ public class ToDo {
     Date createdOn;
 
     @Column(name = "updated_on")
-    @JsonFormat(pattern="yyyy-MM-dd  hh:mm:ss")
+    @JsonFormat(pattern="yyyy-MM-dd hh:mm:ss")
     @JsonProperty("updated_on")
     Date updatedOn;
 
