@@ -1,4 +1,4 @@
-package net.metrosystems.data;
+package com.licenta.freetime.data;
 
 import java.io.IOException;
 
@@ -21,7 +21,6 @@ import org.xml.sax.SAXException;
 import com.datastax.driver.core.*;
 import com.datastax.driver.core.Cluster.Builder;
 import com.datastax.driver.core.exceptions.InvalidQueryException;
-import com.datastax.driver.extras.codecs.enums.EnumNameCodec;
 import com.datastax.driver.mapping.MappingManager;
 
 
@@ -134,6 +133,8 @@ public class CassandraPersistenceService {
         }
       }
     }
+    session.execute("ALTER TABLE " + properties.getKeyspace() + ".favorite_movies DROP genres");
+    session.execute("ALTER TABLE " + properties.getKeyspace() + ".favorite_movies ADD genres list<text>");
   }
 
   /**

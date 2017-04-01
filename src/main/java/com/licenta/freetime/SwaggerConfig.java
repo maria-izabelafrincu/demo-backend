@@ -1,4 +1,4 @@
-package net.metrosystems;
+package com.licenta.freetime;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

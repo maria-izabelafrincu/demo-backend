@@ -1,13 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <cassandra>
     <use>
-        use to_do
+        use backend
     </use>
     <tables>
         <table>
-            create table if not exists to_do (title text, description text, created_on timestamp, updated_on timestamp, is_done boolean,
-            primary key (title))
+            create table if not exists users (email text, password text, created_on timestamp, updated_on timestamp, first_name text,
+            last_name text, primary key (email))
         </table>
+        <table>
+            create table if not exists favorite_movies (email text, movie_title text, genres text, overview text, created_on timestamp, updated_on timestamp,
+            primary key ((email), movie_title))
+        </table>
+        <!--<table>-->
+            <!--create table if not exists favorite_music (email text, description text, created_on timestamp, updated_on timestamp,-->
+            <!--primary key (email))-->
+        <!--</table>-->
     </tables>
 
     <indexes>

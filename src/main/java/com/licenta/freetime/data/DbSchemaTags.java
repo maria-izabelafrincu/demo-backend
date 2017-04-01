@@ -1,4 +1,4 @@
-package net.metrosystems.data;
+package com.licenta.freetime.data;
 
 public enum DbSchemaTags {
     KEYSPACE("keyspace"),

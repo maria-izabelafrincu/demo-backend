@@ -1,4 +1,4 @@
-package net.metrosystems.data;
+package com.licenta.freetime.data;
 
 import java.util.List;
 

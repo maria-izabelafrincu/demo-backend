@@ -1,6 +1,6 @@
-package net.metrosystems;
+package com.licenta.freetime;
 
-import net.metrosystems.data.CassandraProperties;
+import com.licenta.freetime.data.CassandraProperties;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
